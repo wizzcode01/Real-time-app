@@ -8,5 +8,4 @@ const RoomSchema = new mongoose.Schema({
 )
 
 const RoomModel = mongoose.Model('RoomModel', RoomSchema)
-
 export default RoomModel
