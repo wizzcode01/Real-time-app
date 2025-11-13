@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 const ChatSchema = new mongoose.Schema({
     message: {type: String},
-    user: {type: mongoose.Schema.Types.ObjectId , ref: "User"},
-    room: {type: mongoose.Schema.Types.ObjectId, ref: "room"}
+    user: {type: mongoose.Schema.Types.ObjectId , ref: "User", required: true},
+    room: {type: mongoose.Schema.Types.ObjectId, ref: "Room", required: true}
 },
 {timestamps: true}
 )
