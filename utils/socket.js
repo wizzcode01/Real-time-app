@@ -31,6 +31,7 @@ io.on('connection', (socket) => {
     socket.on('sendMessage', async(msg) => {
         //msg contain user, message, roomName
         //save message to mongo db for persistence
+        try {
         const room = await RoomModel.findOne({name: msg.roomName})
        
         const newMessage = ({
@@ -49,5 +50,8 @@ io.on('connection', (socket) => {
        }
        //broadcast the message
       io.to(room._id.toString()).emit('recieveMessage', clientMessage)
+    }catch(error){
+       console.log('server error occurred trying to emit socket', error)
+    }
     })
 })
