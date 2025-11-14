@@ -3,7 +3,9 @@ import cors from 'cors'
 import connectDb from './config/db'
 import http, { createServer } from 'http'
 import { Server } from 'socket.io'
+import socketRoute from '/routes/socketRoute.js'
 import setupSocket from './utils/socket'
+
 
 
 const app = express()
@@ -23,6 +25,8 @@ const io = new Server(httpServer, {
 })
 
 setupSocket(io)
+
+app.use('/api/get', socketRoute)
 
 const PORT = process.env.PORT
 httpServer.listen(PORT, () => {

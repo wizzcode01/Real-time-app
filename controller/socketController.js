@@ -1,5 +1,5 @@
-import ChatModel from "../model/chat";
-import RoomModel from "../model/rooms";
+import ChatModel from "../model/chat.js";
+import RoomModel from "../model/rooms.js";
 
 export const getSocket = async (req , res) => {
      try {
@@ -16,6 +16,6 @@ export const getSocket = async (req , res) => {
 
         }catch(err){
         console.log("error from socker controller", err)
-        res.status(500).json({'server error'})
+        res.status(500).send('server error')
         }
 }

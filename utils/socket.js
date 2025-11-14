@@ -1,6 +1,6 @@
 import { Socket, Socketio } from "socket.io";
-import RoomModel from "../model/rooms";
-import ChatModel from "../model/chat";
+import RoomModel from "../model/rooms.js";
+import ChatModel from "../model/chat.js";
 import { use } from "react";
 
 //listens for a new client websocket connection
