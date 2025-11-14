@@ -32,9 +32,6 @@ export default function setupSocket(io){
 
         //send message to a room logic
         socket.on('sendMessage', async(msg) => {
-            if(userRoomId){
-                socket.leave(userRoomId)
-            }
             //msg contain user, message, roomName
             //save message to mongo db for persistence
             try {
@@ -46,7 +43,7 @@ export default function setupSocket(io){
                 room: room._id,
                 user:msg.user
             })
-        await newMessage.save()
+            await newMessage.save()
 
         //data for client broadcast
         const clientMessage = {

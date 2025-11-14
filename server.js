@@ -1,11 +1,16 @@
 import express from 'express'
 import cors from 'cors'
+import connectDb from './config/db'
 import http, { createServer } from 'http'
 import { Server } from 'socket.io'
 import setupSocket from './utils/socket'
-setupSocket(io)
+
 
 const app = express()
+app.use(cors())
+app.use(express.json())
+
+connectDb()
 //create http server and pass the app instance to it 
 const httpServer = http.createServer(app)
 
@@ -16,6 +21,8 @@ const io = new Server(httpServer, {
         methods: ["GET", "POST"]
     }
 })
+
+setupSocket(io)
 
 const PORT = process.env.PORT
 httpServer.listen(PORT, () => {
