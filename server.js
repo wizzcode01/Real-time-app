@@ -2,6 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import http, { createServer } from 'http'
 import { Server } from 'socket.io'
+import setupSocket from './utils/socket'
+setupSocket(io)
 
 const app = express()
 //create http server and pass the app instance to it 
