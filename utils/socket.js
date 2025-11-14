@@ -54,4 +54,7 @@ io.on('connection', (socket) => {
        console.log('server error occurred trying to emit socket', error)
     }
     })
+     socket.on('disconnected', () => {
+       console.log(`user disconnected: ${socket.id}`)
+    })
 })
