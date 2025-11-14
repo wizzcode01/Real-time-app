@@ -48,6 +48,6 @@ io.on('connection', (socket) => {
            room:room.name
        }
        //broadcast the message
-       socket.emit(clientMessage)
+      io.to(room._id.toString()).emit('recieveMessage', clientMessage)
     })
 })
