@@ -6,8 +6,6 @@ import { Server } from 'socket.io'
 import socketRoute from '/routes/socketRoute.js'
 import setupSocket from './utils/socket'
 
-
-
 const app = express()
 app.use(cors())
 app.use(express.json())

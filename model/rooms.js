@@ -7,5 +7,5 @@ const RoomSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const RoomModel = mongoose.Model('RoomModel', RoomSchema)
+const RoomModel = mongoose.model('RoomModel', RoomSchema)
 export default RoomModel
