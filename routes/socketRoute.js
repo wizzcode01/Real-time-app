@@ -3,6 +3,6 @@ import express from 'express'
 
 const router = express.Router() 
 
-router.get('/getMessage', getSocket)
+router.get('/getMessage/general', getSocket)
 
 export default router

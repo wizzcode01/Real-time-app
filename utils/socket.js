@@ -11,10 +11,9 @@ export default function setupSocket(io){
         let userRoomId = null
         //logic to join a room
         socket.on('joinRoom', async (roomName) => {
-            if(userRoomId){
+            if(userRoomId){ //if the user is already in the room
                 socket.leave(userRoomId)
             }
-
             try {
                 const room = await RoomModel.findOne({name: roomName})
                 if(!room){
