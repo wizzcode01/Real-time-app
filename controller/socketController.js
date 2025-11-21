@@ -4,7 +4,7 @@ import RoomModel from "../model/rooms.js";
 export const getSocket = async (req , res) => {
      try {
         const roomName = req.params.roomName
-        const room = await RoomModel.findOne(roomName)
+        const room = await RoomModel.findOne({name: roomName})
         if(!room) {
             return res.status(404).json({error: 'Room not found'})
         }
